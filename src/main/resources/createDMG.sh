@@ -12,7 +12,7 @@ jlink \
   --compress=2 \
   --no-header-files \
   --no-man-pages
-
+# dmg, ou app-image pour le field --type
 jpackage \
   --input /Users/quentin/MavenTest/OpenCraft/out/artifacts/OpenCraft_jar \
   --name OpenCraft \

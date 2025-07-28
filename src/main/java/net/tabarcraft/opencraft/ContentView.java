@@ -92,7 +92,6 @@ public class ContentView extends VBox {
                 playQuestions,
                 viewQuestions,
                 new SeparatorMenuItem(),
-                questionsExample,
                 editQuestions
         );
 
