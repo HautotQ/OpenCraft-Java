@@ -1,8 +1,10 @@
-package net.tabarcraft.opencraft;
+package net.tabarcraft.opencraft.View;
 
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
+import net.tabarcraft.opencraft.Question;
+import net.tabarcraft.opencraft.QuestionStore;
 
 public class EditQuestionView extends VBox {
 

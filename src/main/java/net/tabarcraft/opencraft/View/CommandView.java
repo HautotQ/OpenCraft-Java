@@ -1,4 +1,4 @@
-package net.tabarcraft.opencraft;
+package net.tabarcraft.opencraft.View;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;

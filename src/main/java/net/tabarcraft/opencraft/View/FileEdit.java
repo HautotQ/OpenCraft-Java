@@ -1,4 +1,4 @@
-package net.tabarcraft.opencraft;
+package net.tabarcraft.opencraft.View;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
@@ -6,6 +6,8 @@ import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Window;
+import net.tabarcraft.opencraft.Question;
+
 import java.nio.file.Files;
 import java.util.List;
 import java.io.File;

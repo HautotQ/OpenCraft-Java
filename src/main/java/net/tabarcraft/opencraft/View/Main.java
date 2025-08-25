@@ -1,4 +1,4 @@
-package net.tabarcraft.opencraft;
+package net.tabarcraft.opencraft.View;
 
 import javafx.application.Application;
 import javafx.scene.Scene;

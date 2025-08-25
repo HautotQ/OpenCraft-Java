@@ -56,6 +56,42 @@
             <artifactId>javafx-media</artifactId>
             <version>${javafx.version}</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.gluonhq/charm-down-core-ios -->
+        <dependency>
+            <groupId>com.gluonhq</groupId>
+            <artifactId>charm-down-core-ios</artifactId>
+            <version>3.8.6</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.gluonhq.attach</groupId>
+            <artifactId>storage</artifactId>
+            <version>4.0.11</version>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/com.gluonhq/charm-down-common -->
+        <dependency>
+            <groupId>com.gluonhq</groupId>
+            <artifactId>charm-down-common</artifactId>
+            <version>2.0.1</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.gluonhq/charm-down-plugin-storage-desktop -->
+        <dependency>
+            <groupId>com.gluonhq</groupId>
+            <artifactId>charm-down-plugin-storage-desktop</artifactId>
+            <version>3.8.6</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.gluonhq/charm-down-plugin-lifecycle-ios -->
+        <dependency>
+            <groupId>com.gluonhq</groupId>
+            <artifactId>charm-down-plugin-lifecycle-ios</artifactId>
+            <version>3.8.6</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -83,6 +119,15 @@
                         <argument>--add-modules</argument>
                         <argument>javafx.controls,javafx.fxml</argument>
                     </arguments>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>com.gluonhq</groupId>
+                <artifactId>gluonfx-maven-plugin</artifactId>
+                <version>1.0.16</version>
+                <configuration>
+                    <target>ios</target>
                 </configuration>
             </plugin>
         </plugins>

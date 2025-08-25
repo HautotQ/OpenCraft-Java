@@ -1,4 +1,4 @@
-package net.tabarcraft.opencraft;
+package net.tabarcraft.opencraft.View;
 
 import javafx.application.Platform;
 import javafx.geometry.Insets;
@@ -6,6 +6,11 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
+import net.tabarcraft.opencraft.OCUtils;
+import net.tabarcraft.opencraft.Question;
+import net.tabarcraft.opencraft.QuestionStore;
+import net.tabarcraft.opencraft.Settings;
+
 import java.util.*;
 import java.util.function.Consumer;
 

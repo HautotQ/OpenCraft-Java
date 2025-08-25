@@ -1,9 +1,11 @@
-package net.tabarcraft.opencraft;
+package net.tabarcraft.opencraft.View;
 
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
+import net.tabarcraft.opencraft.Question;
+import net.tabarcraft.opencraft.QuestionStore;
 
 import static net.tabarcraft.opencraft.OCUtils.showAlert;
 

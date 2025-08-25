@@ -1,4 +1,4 @@
-package net.tabarcraft.opencraft;
+package net.tabarcraft.opencraft.View;
 
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -8,6 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import net.tabarcraft.opencraft.*;
 
 public class ContentView extends VBox {
     private BorderPane root;

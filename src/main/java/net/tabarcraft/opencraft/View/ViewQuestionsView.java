@@ -1,4 +1,4 @@
-package net.tabarcraft.opencraft;
+package net.tabarcraft.opencraft.View;
 
 import javafx.application.Platform;
 import javafx.scene.Scene;
@@ -10,6 +10,9 @@ import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import net.tabarcraft.opencraft.OCUtils;
+import net.tabarcraft.opencraft.Question;
+import net.tabarcraft.opencraft.QuestionStore;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;

@@ -3,6 +3,7 @@ package net.tabarcraft.opencraft;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import net.tabarcraft.opencraft.View.ContentView;
 
 public class Launcher extends Application {
     @Override

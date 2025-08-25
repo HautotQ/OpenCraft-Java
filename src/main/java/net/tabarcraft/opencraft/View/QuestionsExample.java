@@ -1,8 +1,9 @@
-package net.tabarcraft.opencraft;
+package net.tabarcraft.opencraft.View;
 
 import javafx.collections.*;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
+import net.tabarcraft.opencraft.Question;
 
 public class QuestionsExample extends VBox {
     private ObservableList<Question> questionExample = FXCollections.observableArrayList();
