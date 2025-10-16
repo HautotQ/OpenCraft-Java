@@ -1,0 +1,40 @@
+name: Déploiement JPro Maven sur GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Cloner le dépôt
+        uses: actions/checkout@v4
+
+      - name: Installer Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - name: Construire avec Maven
+        run: mvn clean package
+
+      - name: Lancer JPro (mode headless)
+        run: |
+          mvn com.sandec.jpro:jpro-maven-plugin:${{ env.JPRO_VERSION }}:jproRun -Djpro.server.port=8080 &
+          sleep 10
+        env:
+          JPRO_VERSION: 2024.2.3
+
+      - name: Copier les fichiers générés
+        run: |
+          mkdir public
+          cp -r target/jpro/* public/
+
+      - name: Déployer sur GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
