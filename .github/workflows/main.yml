@@ -18,23 +18,19 @@ jobs:
           distribution: temurin
           java-version: 21
 
-      - name: Construire avec Maven
+      - name: Construire le projet JPro
         run: mvn clean package
 
-      - name: Lancer JPro (mode headless)
-        run: |
-          mvn com.sandec.jpro:jpro-maven-plugin:${{ env.JPRO_VERSION }}:jproRun -Djpro.server.port=8080 &
-          sleep 10
-        env:
-          JPRO_VERSION: 2024.2.3
+      - name: Créer le webapp JPro
+        run: mvn com.sandec.jpro:jpro-maven-plugin:2024.2.3:webApp
 
       - name: Copier les fichiers générés
         run: |
-          mkdir public
-          cp -r target/jpro/* public/
+         mkdir public
+         cp -r target/jpro/webapp/* public/
 
       - name: Déployer sur GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+         github_token: ${{ secrets.GITHUB_TOKEN }}
+         publish_dir: ./
