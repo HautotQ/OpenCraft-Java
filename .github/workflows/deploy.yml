@@ -19,7 +19,7 @@ jobs:
           java-version: '17'
 
       - name: Build with Maven
-        run: mvn clean package jpro:export
+        run: mvn clean package jpro:run
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
