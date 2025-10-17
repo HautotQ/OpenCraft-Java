@@ -127,6 +127,15 @@
             </plugin>
 
             <plugin>
+                <groupId>com.sandec.jpro</groupId>
+                <artifactId>jpro-maven-plugin</artifactId>
+                <version>2024.2.3</version>
+                <configuration>
+                    <mainClass>net.tabarcraft.opencraft.Launcher</mainClass>
+                </configuration>
+            </plugin>
+
+            <plugin>
                 <groupId>com.gluonhq</groupId>
                 <artifactId>gluonfx-maven-plugin</artifactId>
                 <version>1.0.16</version>
