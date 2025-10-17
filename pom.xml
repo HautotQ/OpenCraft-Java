@@ -112,7 +112,7 @@
         <dependency>
             <groupId>one.jpro</groupId>
             <artifactId>jpro-webapi</artifactId>
-            <version>2025.3.1</version>
+            <version>2024.1.3</version>
             <scope>runtime</scope>
         </dependency>
 
@@ -149,7 +149,7 @@
             <plugin>
                 <groupId>one.jpro</groupId>
                 <artifactId>jpro-maven-plugin</artifactId>
-                <version>2025.3.1-SNAPSHOT</version>
+                <version>2024.1.3</version>
                 <configuration>
                     <mainClassName>net.tabarcraft.opencraft.Launcher</mainClassName>
                 </configuration>
