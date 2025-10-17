@@ -11,6 +11,10 @@
 
     <repositories>
         <repository>
+            <id>sandec-releases</id>
+            <url>https://sandec.jfrog.io/artifactory/repo</url>
+        </repository>
+        <repository>
             <id>central</id>
             <name>Maven Central Repository</name>
             <url>https://repo.maven.apache.org/maven2</url>
@@ -26,6 +30,14 @@
             <url>https://sandec.jfrog.io/artifactory/repo</url>
         </repository>
     </repositories>
+
+         
+    <pluginRepositories>
+        <pluginRepository>
+            <id>sandec-releases</id>
+            <url>https://sandec.jfrog.io/artifactory/repo</url>
+        </pluginRepository>
+    </pluginRepositories>
 
 
     <properties>
