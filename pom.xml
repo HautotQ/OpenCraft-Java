@@ -96,6 +96,12 @@
             <version>3.8.6</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.sandec.jpro</groupId>
+            <artifactId>jpro-webapi</artifactId>
+            <version>2024.2.3</version>
+        </dependency>
+
     </dependencies>
 
     <build>
