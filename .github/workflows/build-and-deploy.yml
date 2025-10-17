@@ -1,0 +1,49 @@
+name: Convertir JavaFX en site web et déployer
+
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v4
+
+      - name: Installer Java
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Construire le projet Maven
+        run: mvn -B package --file pom.xml
+
+      - name: Installer Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Installer le transpileur Java → HTML/JS
+        run: |
+          npm install -g java2js
+          mkdir web
+          java2js src/main/java -o web
+        continue-on-error: true
+
+      - name: Ajouter les fichiers CSS et index
+        run: |
+          echo "<!DOCTYPE html><html><head><meta charset='utf-8'><title>OpenCraft</title><link rel='stylesheet' href='style.css'></head><body><script src='main.js'></script></body></html>" > web/index.html
+          echo "body { font-family: Arial; background: #222; color: #eee; }" > web/style.css
+
+      - name: Déployer sur GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./web
