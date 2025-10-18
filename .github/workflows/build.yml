@@ -40,4 +40,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: target/jpro-release
-          publish_branch: gh-pages
+          publish_branch: master
