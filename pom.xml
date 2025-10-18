@@ -11,47 +11,41 @@
 
     <repositories>
         <repository>
-            <id>sandec-releases</id>
+            <id>sandec</id>
             <url>https://sandec.jfrog.io/artifactory/repo</url>
-        </repository>
-        <repository>
-            <id>central</id>
-            <name>Maven Central Repository</name>
-            <url>https://repo.maven.apache.org/maven2</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
             <releases>
                 <enabled>true</enabled>
             </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
         </repository>
         <repository>
-            <id>jpro-repo</id>
-            <url>https://sandec.jfrog.io/artifactory/repo</url>
+            <id>central</id>
+            <url>https://repo.maven.apache.org/maven2</url>
         </repository>
     </repositories>
 
-         
     <pluginRepositories>
         <pluginRepository>
-            <id>sandec-releases</id>
+            <id>sandec-plugins</id>
             <url>https://sandec.jfrog.io/artifactory/repo</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
         </pluginRepository>
     </pluginRepositories>
-
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-        <!-- JavaFX -->
-        <javafx.version>19</javafx.version> <!-- ou 20 si tu veux tester -->
-        <javafx.platform>mac</javafx.platform> <!-- car tu es sur macOS -->
+        <javafx.version>21.0.1</javafx.version>
+        <javafx.platform>mac</javafx.platform>
     </properties>
 
     <dependencies>
-        <!-- JavaFX Controls -->
+        <!-- JavaFX -->
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
@@ -59,7 +53,6 @@
             <classifier>${javafx.platform}</classifier>
         </dependency>
 
-        <!-- JavaFX FXML -->
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
@@ -67,61 +60,18 @@
             <classifier>${javafx.platform}</classifier>
         </dependency>
 
-        <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-media</artifactId>
-            <version>${javafx.version}</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/com.gluonhq/charm-down-core-ios -->
-        <dependency>
-            <groupId>com.gluonhq</groupId>
-            <artifactId>charm-down-core-ios</artifactId>
-            <version>3.8.6</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.gluonhq.attach</groupId>
-            <artifactId>storage</artifactId>
-            <version>4.0.11</version>
-        </dependency>
-
-
-        <!-- https://mvnrepository.com/artifact/com.gluonhq/charm-down-common -->
-        <dependency>
-            <groupId>com.gluonhq</groupId>
-            <artifactId>charm-down-common</artifactId>
-            <version>2.0.1</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/com.gluonhq/charm-down-plugin-storage-desktop -->
-        <dependency>
-            <groupId>com.gluonhq</groupId>
-            <artifactId>charm-down-plugin-storage-desktop</artifactId>
-            <version>3.8.6</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/com.gluonhq/charm-down-plugin-lifecycle-ios -->
-        <dependency>
-            <groupId>com.gluonhq</groupId>
-            <artifactId>charm-down-plugin-lifecycle-ios</artifactId>
-            <version>3.8.6</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/one.jpro/jpro-webapi -->
+        <!-- JPro -->
         <dependency>
             <groupId>one.jpro</groupId>
             <artifactId>jpro-webapi</artifactId>
-            <version>2024.1.3</version>
-            <scope>runtime</scope>
+            <version>2025.3.1-SNAPSHOT</version>
         </dependency>
-
     </dependencies>
 
     <build>
         <plugins>
-            <!-- Compiler plugin -->
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.11.0</version>
                 <configuration>
@@ -130,37 +80,12 @@
                 </configuration>
             </plugin>
 
-            <!-- Plugin pour lancer JavaFX -->
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>3.1.0</version>
-                <configuration>
-                    <mainClass>net.tabarcraft.opencraft.Launcher</mainClass>
-                    <arguments>
-                        <argument>--module-path</argument>
-                        <argument>${java.home}/lib:${settings.localRepository}/org/openjfx/javafx-controls/${javafx.version}/javafx-controls-${javafx.version}-${javafx.platform}.jar</argument>
-                        <argument>--add-modules</argument>
-                        <argument>javafx.controls,javafx.fxml</argument>
-                    </arguments>
-                </configuration>
-            </plugin>
-
             <plugin>
                 <groupId>one.jpro</groupId>
                 <artifactId>jpro-maven-plugin</artifactId>
-                <version>2024.1.3</version>
+                <version>2025.3.1-SNAPSHOT</version>
                 <configuration>
                     <mainClassName>net.tabarcraft.opencraft.Launcher</mainClassName>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>com.gluonhq</groupId>
-                <artifactId>gluonfx-maven-plugin</artifactId>
-                <version>1.0.16</version>
-                <configuration>
-                    <target>ios</target>
                 </configuration>
             </plugin>
         </plugins>
